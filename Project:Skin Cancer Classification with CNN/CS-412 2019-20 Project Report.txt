@@ -1,0 +1,67 @@
+﻿CS-412 2019-20 Project Report
+Skin Cancer Classification
+
+
+  
+
+
+
+                Instructor:Reyyan Yeniterzi
+                        Berkin İnceoğlu
+                         Furkan Ergün
+ Furkan Özhan
+       Onur Arda Bodur        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Dataset:
+
+
+The dataset contained 5 class which each of them containing images with their regarding classes.Classes were not equally distributed meaning that the provided dataset was unbalanced.One other problematic part of the dataset was the sizes of the images.There were different sized images in the dataset and the image sizers were also large.
+        
+        Distribution of the classes as given below:  
+
+
+
+
+
+
+
+
+
+
+Preprocessing:
+        In order to work on the dataset for creating a working model,some preprocessing was necessary.First the necessary dictionary of classes is built for the result step.Secondly an image pipeline function is created (imagePipeline()) for working on the data and casting it to a tensor.Casting to a tensor was a vital need since Neural Network libraries oftenly worked with tensors.Inside same image pipeline function before casting to the tensor , each data (image) is resized to (128,128) and after that normalized within range (0,1).Finally,one hot encoding is done for the dataset.
+(EDA) Exploratory Data Analysis:
+        Dataset that was provided did not contain much of an information other than images so a detailed EDA was not possible to make.Preprocessing procedure is checked in this part.Images are printed and checked whether they contained the same size or not.
+Model:
+Model architecture:
+1-Conv2D -> 2-MaxPooling -> 3-Conv2D -> 4-MaxPooling -> 5-Dropout 
+6-Conv2D -> 7-MaxPooling -> 8-Dropout -> 9-Flatten -> 10-Dense -> 11-Dropout
+12-Dense
+
+
+The above architecture was chosen after several different trials on other NN architectures.It contains 2 consecutive convolutional layers with max pooling.These layers allowed for the model to summarize better on the features for the feature maps.After the second max pooling a dropout layer is called for dealing with the overfitting problems and the same process applied again.In the Flatten layer we converted the data in to 1 dimensional array and connected it to a fully connected layer.Before getting in to the final layer a dropout layer is applied again and finally for output layer we used Dense layer with softmax activation function.
+
+
+The model is started to train with the train data and after it is observed that it performs well the validation data is and train data gathered together for the train process all over again.The trained model resulted in a performance close to 65.
+
+
+It is suspected that the given dataset contained noisy that or mislabeled data.In order to solve such a case there can be a procedure of filtering is possible to apply which can eliminate the mislabeled data as much as possible.Clustering can be done on the images and check which data instances showed large differences when they are stated that they are in the same class.
