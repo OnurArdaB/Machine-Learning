@@ -11,4 +11,4 @@
  
  ## HW-5:CNN for Plant Disease Detection
  
- ## Project:Implemented and tested several CNN architectures for obtaining an optimal skin cancer classifier 
+ ## Project:Implemented and tested several CNN architectures for obtaining Skin Cancer Classification
